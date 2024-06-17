@@ -74,11 +74,14 @@ ifeq ($(DEBUG), 1)
 # -fmax-errors=1:     	Limit the number of errors to 1
 # -Wfatal-errors:     	Stop after the first error
 # -D_GLIBCXX_DEBUG:		Enable extra debugging checks for the GNU C++ library
-# -fsanitize=undefined: Enable undefined behavior sanitizer
-# -fsanitize=address:	Enable address sanitizer
 
 CXXCFLAGS += -DDEBUG -g3 -Wall -Wextra -Wpedantic -Wsign-conversion -fmax-errors=1 \
 			 -Wfatal-errors -D_GLIBCXX_DEBUG -fsanitize=undefined -fsanitize=address
+
+# -fsanitize=undefined: Enable undefined behavior sanitizer
+# -fsanitize=address:	Enable address sanitizer
+
+CXXCLFLAGS += -fsanitize=address -fsanitize=undefined
 
 else
 
